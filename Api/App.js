@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
-  const URL = 'https://placekitten.com/200/300/'
+  const URL = 'https://swapi.dev/api/people/1/'
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -15,9 +15,12 @@ export default function App() {
 						 .then((response) => {
               console.log('fetched data')
 						console.log(response)
+            const data = response.data
+            const name_of_person = data["name"]
+            console.log(name_of_person)
 				}).catch(() => {
           console.log('error')
-          //setData(response.data)
+          setData(response.data)
 				})
 			} catch (error) {
         console.error('Failed to fetch data: ', error);
@@ -75,5 +78,3 @@ const styles = StyleSheet.create({
     color:'#8B4513'
   }
 });
-
-//const kittenImg = document.getElementById('kitten');
