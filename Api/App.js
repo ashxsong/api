@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
-  const URL = 'https://coffee.alexflipnote.dev/'
+  const URL = 'https://placekitten.com/'
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -13,9 +13,10 @@ export default function App() {
 			try {
 				const response = await axios.get(URL)
 						 .then((response) => {
+              console.log('fetched data')
 						console.log(response)
 				}).catch(() => {
-          setData(response.data)
+          //setData(response.data)
 				})
 			} catch (error) {
         console.error('Failed to fetch data: ', error);
@@ -27,7 +28,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Coffee API</Text>
+      <Text style={styles.title1}>Placeholder</Text>
+      <Text style={styles.title2}>Kitten</Text>
+      <Text style={styles.title3}>API</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -54,10 +57,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  title: {
-    marginBottom: 400,
+  title1: {
     fontSize: 40,
     fontFamily: 'Verdana',
     color:'#8B4513'
   },
+  title2: {
+    fontSize: 40,
+    fontFamily: 'Verdana',
+    color:'#8B4513'
+  },
+  title3: {
+    marginBottom: 50,
+    fontSize: 40,
+    fontFamily: 'Verdana',
+    color:'#8B4513'
+  }
 });
+
+//const kittenImg = document.getElementById('kitten');
+
