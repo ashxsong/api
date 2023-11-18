@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
-  const URL = 'https://placekitten.com/'
+  const URL = 'https://placekitten.com/200/300/'
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export default function App() {
               console.log('fetched data')
 						console.log(response)
 				}).catch(() => {
+          console.log('error')
           //setData(response.data)
 				})
 			} catch (error) {
@@ -76,4 +77,3 @@ const styles = StyleSheet.create({
 });
 
 //const kittenImg = document.getElementById('kitten');
-
